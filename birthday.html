@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>"Barakallah fii umrik" 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Baloo 2', cursive, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ff4081;
+      animation: bounce 1.5s infinite;
+    }
+
+    .cake {
+      width: 140px;
+      margin: 30px auto;
+      animation: wiggle 2s infinite;
+    }
+
+    .message {
+      font-size: 1.2em;
+      color: #444;
+      background: #fff3cd;
+      border: 2px dashed #ff6f61;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: float 4s ease-in-out infinite;
+      max-width: 600px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border: none;
+      background-color: #ff4081;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background-color: #ff6f61;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4081;
+      opacity: 0.7;
+      border-radius: 50%;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fall {
+      0% { top: -10px; }
+      100% { top: 100vh; }
+    }
+
+    .doa {
+      margin-top: 25px;
+      font-style: italic;
+      color: #666;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎂 "Barakallah fii umrik"<br>بَارَكَ اللهُ فِيْ أُعْمُرِكَ! 🎉</h1>
+
+  <img src="assets/birthday.png" alt="Kue Ulang Tahun" class="cake" onerror="this.style.display='none'">
+
+  <div class="message">
+    Selamat ulang tahun di bulan mulia Dzulqaidah.  
+    Semoga Allah senantiasa memberkahi usiamu, melimpahkan rahmat dan rezeki yang halal, serta menjadikanmu hamba yang semakin taat dan bermanfaat bagi sesama.  
+    <br><br>🎈 Panjang umur, sehat selalu, dan makin bahagia ya!  
+    Jangan lupa traktiran kuenya... 😋
+  </div>
+
+  <p class="doa">“Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya.” (HR. Ahmad)</p>
+
+  <button class="btn" onclick="showConfetti()">Klik untuk Kejutan 🎊</button>
+
+  <audio id="bgMusic" loop>
+    <source src="assets/happy-birthday.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio 😢
+  </audio>
+
+  <script>
+    function showConfetti() {
+      const audio = document.getElementById("bgMusic");
+      audio.play();
+
+      for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 70%)`;
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
